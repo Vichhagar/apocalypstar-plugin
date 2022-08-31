@@ -1,0 +1,271 @@
+body{
+    margin: 0;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(240, 242, 245);
+}
+
+/* MENU ADMIN */
+.wrapper{
+    display: flex;
+    position: relative;
+}
+ .sidebar{
+    position: fixed;
+    z-index: 1000;
+    width: 300px;
+    height: 100%;
+    background: black;
+    padding: 30px 0;
+     left: 0;
+}
+
+.wrapper .sidebar h2{
+    font-size: 18px;
+    color: #fff;
+    text-transform: uppercase;
+    position: absolute;
+    top: 0;
+    left: 50px;
+
+}
+
+.wrapper .sidebar  ul{
+    padding-left: 0;
+    margin-top: 50px;
+
+}
+
+.wrapper .sidebar  ul li:first-child{
+    border-top: 1px solid #ffffff;
+}
+
+.wrapper .sidebar  ul li {
+    list-style: none;
+    padding: 20px;
+    border-bottom: 1px solid #ffffff;
+    opacity: 0.5;
+    color: #ffffff;
+}
+
+.wrapper .sidebar  ul li a {
+    color: #ffffff;
+    display: block;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.wrapper .sidebar  ul li .glyphicon{
+    width: 25px;
+}
+
+.wrapper .sidebar  ul li:hover{
+    background: #594f8d;
+    color: #ffffff;
+}
+
+.wrapper .sidebar  ul li:hover a{
+    color: #ffffff;
+}
+
+.wrapper .sidebar .selected{
+	background-color: red;
+	color: white;
+	opacity: 1;
+}
+
+/** Croix de Fermeture du Menu **/
+.sideMenu .closebtn{
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 40px;
+    margin-left: 50px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+
+
+/* Form ADMIN */
+.form_admin{
+    margin-top: 30vh; /* poussé de 40% moitié de hauteur de viewport */
+    transform: translateY(-50%); /* tiré de la moitié de sa propre hauteur */
+    float: none; /* Permet d'utiliser la class Center Block de Bootstraps */
+}
+
+
+.button_connect{
+    width: 100%;
+    font-weight: bold;
+    font-size: 17px;
+    color: black;
+    background-color: dodgerblue;
+    margin-bottom: 10px;
+}
+
+
+/** Container Général du Contenu du Back Office **/
+
+
+/* Réglé la Taille du Popover */
+.popover {
+    max-width: 1200px;
+    width: auto;
+    color: black;
+}
+
+
+
+/*--- Calendrier des Réservations style Général ---*/
+.calendrier_admin {
+    border-collapse: separate;
+    font-size: 90%;
+    border: 0;
+    border-spacing: 3rem 1rem;
+}
+
+
+/** Centrer le Mois et le Jours du Calendrier **/
+
+/** CELLULE ENTETE <tr> **/
+.days {
+    background-color: #C1272D;
+    padding: 0.6rem 0.6rem;
+    color: whitesmoke;
+}
+
+
+/** CELULLE TD et TR Style Général **/
+.days, .hour {
+    border: 0;
+    text-align: center;
+    width: 16.66%;
+    font-size: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/** CELLULE NON RESERVER **/
+.cliquable {
+    background-color: #90AF5A;
+    cursor: pointer; /* On Rends le Formulaire Cliquable qui ajoute la class pre-reserved */
+    color: white;
+    padding: 8px 0;
+}
+
+/** CELLULE PRE-RESERVED **/
+.pre-reserved{
+    background-color: #F7931E !important; /* Permet mettre en évidence la date et l'heure qui à été réservé */
+}
+
+/** CELLULE INDISPONIBLES **/
+.indisponible{
+    background-color: #7C3338;
+    border-radius: 5px;
+    color: whitesmoke;
+    padding: 6px 0;
+}
+
+
+/** CELLULE INDISPONIBLES ET PAYER **/
+.indisponible_payout{
+    background-color: dimgrey;
+    border-radius: 5px;
+    color: whitesmoke;
+    padding: 6px 0;
+}
+
+/** CELLULE BLOQUER PAR ADMINISTRATEUR **/
+.blockAdmin{
+    background-color: purple;
+    border-radius: 5px;
+    color: whitesmoke;
+    padding: 6px 0;
+}
+
+
+/** ET CELLULE HORAIRE FERMER **/
+.fermer{
+    background-color: #331A1A;
+    border-radius: 5px;
+    color: whitesmoke;
+    padding: 6px 0;
+    cursor: not-allowed;
+}
+
+
+/** On n'affiche pas le Samedi **/
+.update_calendars{width: 100%;}
+
+
+
+/* Fenetre MODAL Supprimper et Notes  */
+.modal-header{
+    background-color: red;
+    border-spacing: 0;
+    color: whitesmoke;
+    border: 0;
+}
+
+
+/* Formulaire de réservation Administrateur */
+.container_form_reservation{
+    margin-top: 50px;
+    padding-top: 40px
+}
+
+.form_reserved{
+    width: 60%;
+    margin:0 auto;
+}
+
+.form_calendars{
+    padding: 20px 20px;
+    margin-bottom: 20px;
+}
+
+input[type=checkbox] {
+    border-radius: 4px;
+    height: 16px;
+    width: 16px;
+    background-color: #b6c5d2;
+    position: relative;
+    top: 3px;
+    left: 2px;
+}
+
+
+.button_reserved{
+    width: 100%;
+    font-weight: bold;
+    font-size: 17px;
+    color: white;
+    background-color: #C1272D;
+    padding: 10px 0;
+    margin-bottom: 15px;
+}
+
+.button_block{
+    font-weight: bold;
+    font-size: 17px;
+    color: white;
+    background-color: #331A1A;
+    padding: 10px 15px;
+    margin-top: 15px;
+}
+
+.form_calendars_div{
+    margin-bottom: 50px;
+}
+
+.number, .level{
+    padding: 15px 10px;
+    margin-bottom: 15px;
+}
+
+/** Page Statistique **/
+.textSize{
+    font-size: 150%;
+}

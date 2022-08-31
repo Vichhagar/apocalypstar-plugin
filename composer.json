@@ -1,0 +1,17 @@
+{
+    "name": "nitro/apocalypstar",
+    "description": "Apocalypstar Plugin",
+    "type": "project",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "vichhagar",
+            "email": "greenraysvich@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {"Inc\\": "./inc"}
+    }
+}

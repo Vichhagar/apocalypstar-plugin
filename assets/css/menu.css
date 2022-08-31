@@ -1,0 +1,358 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* --- Google fonts declarations ---
+font-family: 'IM Fell English', serif;
+font-family: 'IM Fell English SC', serif;
+--- */
+
+/* --- Couleurs génériques ---
+Gris Sombre: #333333
+Gris moyen: #999999
+Gris clair: #CCCCCC
+--- */
+
+/* --- Couleurs calendrier ---
+Rouge des entêtes: #C1272D
+Bordeaux "indisponible": #7C3338
+Jaune sélections: #F7931E
+Vert de base des plages horaires: #90AF5A
+Vert "intense" Pre-reserved: #F7931E
+--- */
+
+/* Balises */
+/*_______________________
+--- BALISES PRIMAIRES ---*/
+html,root, body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-size: 100%;
+}
+
+body {
+    background-color: #2C3E50;
+    background-size: 100% auto;
+    width: 100%;
+}
+
+
+legend {
+    text-transform: uppercase;
+}
+h1, h2, h3, h4, h5 {
+    font-family: 'IM Fell English SC', serif;
+    text-transform: uppercase;
+    margin:0;
+    padding:0;
+}
+a, a:hover{
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* _________________________ */
+/* --- MENU + RESPONSIVE --- */
+@media screen and (min-width:800px) {
+
+    header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+        background-repeat: repeat-x;
+        background-size: auto 100%;
+        background-clip: border-box;
+        padding-top: 3rem;
+        padding-bottom: 5rem;
+    }
+
+
+    .mainNav{
+        display: inline-flex;
+        justify-content: center;
+        position: relative;
+        color: #edab22;
+        font-size: 1.3rem;
+        margin:0;
+        padding:0;
+        box-shadow: 0px 1px 3px 8px rgba(0,0,0,1), 0px 1px 10px 8px rgba(0,0,0,0.9), 0px 1px 6px 8px rgba(0,0,0,0.9);
+    }
+    .mainNav::before, .mainNav::after{
+        content: "";
+        position: absolute;
+        z-index: 2;
+        height: 12px;
+        width: 100%;
+        background-image: url("../../assets/img/Separateur_half.png");
+        background-size: auto 12px;
+        background-repeat: repeat-x;
+        pointer-events: none;
+        cursor: default;
+    }
+    .mainNav::before{
+        top: -9px;
+    }
+    .mainNav::after{
+        bottom: -10px;
+        left: 0;
+    }
+    .mainNav li{
+        display: inline;
+        position: relative;
+        z-index: 3;
+        font-family: 'IM Fell English SC', serif;
+        font-size: 1em;
+        text-shadow: 0px 1px 0px #1c0c05, 0px 2px 0px #1c0c05, 0px 2px 1px #1c0c05, 0px 2px 2px #1c0c05, 0px 2px 3px #1c0c05;
+        text-transform: uppercase;
+        list-style: none;
+        height: 3em;
+    }
+    .mainNav li:first-child{
+        padding-left:20px;
+    }
+    .mainNav li:last-child{
+        padding-right:20px;
+    }
+    .mainNav li:first-child:after {
+        content:"";
+        overflow: visible;
+        display: block;
+        background-image:url("../../assets/img/navBlock-L-stroke.png");
+        background-size: auto 100%;
+        background-repeat: no-repeat;
+        background-position: right;
+        z-index: 3;
+        position: absolute;
+        width: 11em;
+        left: -8.3em;
+        height: 152%;
+        top: -28%;
+        pointer-events: none;
+        cursor: default;
+    }
+    .mainNav li:last-child:after {
+        content:"";
+        overflow: visible;
+        display: block;
+        background-image:url("../../assets/img/navBlock-R-stroke.png");
+        background-size: auto 100%;
+        background-repeat: no-repeat;
+        background-position: left;
+        z-index: 3;
+        position: absolute;
+        width: 11em;
+        height: 152%;
+        top: -28%;
+        right: -8.3em;
+        pointer-events: none;
+        cursor: default;
+    }
+    .leftNav, .rightNav {
+        display: inline-block;
+        text-align: center;
+        width: 8em;
+        z-index: 4;
+        background-image:url("../../assets/img/bgNavLi_half.jpg");
+        background-size: 100% 100%;
+        position: relative;
+        transition: .5s;
+    }
+    .leftNav:hover, .rightNav:hover, .leftNav:active, .rightNav:active{
+        background-image:url("../../assets/img/bgNavLi_hvr-anim_half.gif");
+        color: #fbf29f;
+        text-shadow: 0px 0px 1px red, 0px 0px 12px red, 0px 0px 24px red, 0px -1px 0px #12333c, 0px -2px 0px #12333c, 0px -2px 1px #12333c, 0px -2px 2px #12333c, 0px -2px 3px #12333c, 0px -3px 3px #12333c;
+        transition: .5s;
+        cursor: pointer;
+    }
+    .midNav {
+        width: 9em;
+        z-index: 4;
+        display: inline-block;
+        text-align:center;
+        color: rgba(0,0,0,0);
+        background-image:url("../../assets/img/bgNavLi_half.jpg");
+        background-size: 100% 100%;
+        position: relative;
+        transition: .4s;
+    }
+    .midNav:hover {
+        cursor: pointer;
+        transition: .4s;
+    }
+
+    .mainNav li>a,  .mainNav li>a:hover{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        height: 100%;
+        width: 100%;
+        text-decoration: none;
+        color: inherit;
+        box-sizing: border-box;
+    }
+
+    .midNav::after {
+        content:"";
+        overflow: visible;
+        display: block;
+        position: absolute;
+        height: 4em;
+        width: 4em;
+        border-radius: 100%;
+        background-image:url("../../assets/img/loop_100x100.gif");
+        background-size: auto 110%;
+        background-repeat: no-repeat;
+        background-position: center;
+        top:-0.65em;
+        left: 2.5em;
+        box-shadow: 0px 8px 6px 6px rgba(0,0,0,1), 0px 7px 24px 6px rgba(0,0,0,1), 0px 7px 16px 5px rgba(0,0,0,1);
+        transition: .2s;
+        pointer-events: none;
+    }
+    .midNav:hover::after {
+        background-image:url("../../assets/img/loop2_100x100.gif");
+        transition: 0.4s;
+    }
+    .midNav::before {
+        content:"";
+        overflow: visible;
+        display: block;
+        position: absolute;
+        z-index: 6;
+        height: 195%;
+        width: 10em;
+        background-image:url("../../assets/img/navBlock-mid-stroke.png");
+        background-size: auto 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        top: -48%;
+        left: -0.5em;
+        pointer-events: none;
+    }
+
+    .iconMenu{
+        display: none;
+    }
+}
+
+/** Menu Responsive */
+@media screen and (max-width: 799px) {
+
+    .mainNav{
+        position: fixed;
+        z-index: 10; /** Plus petit que l'icone de déclenchement du Menu **/
+        color: #edab22;
+        font-size: 1rem;
+        margin: 0;
+        padding-left: 0;
+        padding-top:30%;
+        padding-bottom: 40%;
+        transition: .5s;
+        left: -100%;
+        width: 100vw;
+        height: 100vh;
+        max-height: 100%;
+        max-width: 100%;
+        background-color: rgba(0,0,0,0.8);
+    }
+
+
+    .mainNav.active {
+        left: 0;
+    }
+
+
+    .mainNav li{
+        display: block;
+        position: relative;
+        font-size: 1.1em;
+        width:50%;
+        z-index: 3;
+        font-family: 'IM Fell English SC', serif;
+        text-shadow: 0px 1px 0px #1c0c05, 0px 2px 0px #1c0c05, 0px 2px 1px #1c0c05, 0px 2px 2px #1c0c05, 0px 2px 3px #1c0c05;
+        text-transform: uppercase;
+        list-style: none;
+        padding-top: 1.1em;
+        padding-bottom: .9em;
+        margin-top: 1em;
+        box-shadow: 0px 3px 5px 2px rgba(0,0,0,0.9);
+    }
+
+    .mainNav li>a,  .mainNav li>a:hover{
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .mainNav li::after {
+        content:"";
+        overflow: visible;
+        display: block;
+        background-image:url("../../assets/img/navBlock-R-stroke.png");
+        background-size: auto 100%;
+        background-repeat: no-repeat;
+        background-position: left;
+        z-index: 3;
+        position: absolute;
+        width: 11em;
+        height: 120%;
+        top: -.45em;
+        right: -8.3em;
+    }
+    .leftNav, .rightNav, .midNav{
+        display: block;
+        text-align: left;
+        padding-left: 1.5em;
+        z-index: 4;
+        background-image:url("../../assets/img/menuBar_mobile_half.png");
+        background-size: auto 100%;
+        position: relative;
+        transition: .5s;
+    }
+    .leftNav:hover, .rightNav:hover, .leftNav:active, .rightNav:active, .midNav:hover, .midNav:active {
+        background-image: url("../../assets/img/menuBar_mobile_hov_half.png");
+        background-repeat: repeat-x;
+        color: #fbf29f;
+        text-shadow: 0px 0px 1px red, 0px 0px 12px red, 0px 0px 24px red, 0px -1px 0px #12333c, 0px -2px 0px #12333c, 0px -2px 1px #12333c, 0px -2px 2px #12333c, 0px -2px 3px #12333c, 0px -3px 3px #12333c;
+        transition: .5s;
+        cursor: pointer;
+    }
+
+
+    /** Icone pour Actionner le Menu en Haut à Droite **/
+    .iconMenu {
+        display: block;
+        position: fixed;
+        top:0;
+        right:0;
+        width:7rem;
+        height:7rem;
+        background-image: url("../../assets/img/extensRight_half.png");
+        background-size: 100% auto;
+        background-repeat: no-repeat;
+        z-index:11;
+        cursor: pointer;
+    }
+
+    .iconMenu > .icon{
+        position: fixed;
+        top: 1.6rem;
+        right: 2rem;
+        width: 2rem;
+        height: auto;
+        fill: #edab22;
+        filter: drop-shadow( 0px 2px 1px black);
+    }
+
+}
+
+@media screen and (max-width:1200px) {
+
+    .mainNav li{
+        font-size: 1.1rem;
+    }
+}

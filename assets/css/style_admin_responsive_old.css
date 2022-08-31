@@ -1,0 +1,32 @@
+
+.form_reserved{
+    width: 90%;
+    margin:0 auto;
+}
+
+.sidebarResponsive{
+    position: fixed;
+    z-index: 1000;
+    width: 300px;
+    height: 100%;
+    background: black;
+    padding: 30px 0;
+    left: -300px;
+}
+
+.calendrier_admin {
+    border-collapse: separate;
+    font-size: 90%;
+    border: 0;
+    border-spacing: 1rem 1rem;
+}
+
+/** Page Statistique **/
+.textSize{
+    font-size: 100%;
+}
+
+/** Page AddModo**/
+.margeResponsive{
+    margin: 50px 0;
+}
