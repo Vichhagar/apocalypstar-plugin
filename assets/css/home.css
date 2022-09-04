@@ -22,11 +22,6 @@ Vert "intense" Pre-reserved: #F7931E
 /*_____________________ */
 /*----BASIC CLASSES---- */
 /*_____________________ */
-html,root, body{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
 .baseContainer {display: flex;justify-content: space-evenly;position: relative;width: 100%;}
 
@@ -81,6 +76,10 @@ button {
 /*_______________________________________________*/
 /*-- IMAGES DE FOND + COULEUR DE TEXTE BASIQUE --*/
 /*_______________________________________________*/
+
+.container {
+    
+}
 
 .backgroundDark {
     background-image: url("../../assets/img/backgroundDark.jpg"); color: #edab22;

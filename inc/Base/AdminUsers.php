@@ -19,8 +19,7 @@ class AdminUsers
         $user_ID = get_current_user_id();
         // $results = $wpdb->get_results( "SELECT * FROM wp_users");
         $this -> userLevel = $wpdb->get_results("SELECT * from wp_usermeta WHERE user_id = $user_ID");
-        var_dump($user_ID);
-        $this -> userName = $wpdb -> get_results("SELECT user_login from wp_users WHERE ID = $user_ID");
+        $this -> userName = $wpdb -> get_results("SELECT * from wp_users WHERE ID = $user_ID");
         
     }
 
@@ -29,7 +28,7 @@ class AdminUsers
     }
 
     public function getUserName() {
-        return $this -> userName;
+        return $this -> userName[0] -> user_login;
     }
 
     // public static function getUserLevel() {

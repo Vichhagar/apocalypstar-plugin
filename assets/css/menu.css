@@ -30,13 +30,15 @@ html,root, body{
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-size: 100%;
+    width: 100%;
+    background-size: 100% auto;
 }
 
-body {
+/* body {
     background-color: #2C3E50;
     background-size: 100% auto;
     width: 100%;
-}
+} */
 
 
 legend {

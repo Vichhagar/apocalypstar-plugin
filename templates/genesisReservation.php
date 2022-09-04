@@ -1,5 +1,6 @@
 <!-- <h1>genesisReservation()</h1> -->
 <?php
+require_once "header.php";
 $icon_003 = file_get_contents(plugin_dir_url(dirname(__FILE__, 1)) . '/assets/img/icons/icon_003_previous.svg');
 $icon_004 = file_get_contents(plugin_dir_url(dirname(__FILE__, 1)) . '/assets/img/icons/icon_004_next.svg');
 
@@ -64,59 +65,6 @@ $year = date("Y", mktime(0, 0, 0, date("n"), date("d") + $jour, date("y"))); ?>
 
 
 <!-- BLOC HEADER DOND Medium Blue -->
-<!-- <div class="backgroundMediumBlue headerCover"></div> -->
-
-<!-- Le Rooms Section -->
-<!-- <div class="baseContainer backgroundMediumBlue centerText" id="nos-rooms">
-    <h2 class="sectionTitle">Les rooms</h2>
-    <div class="cardContainer">
-        <div class="cardSize">
-            <div class="cardRoomReserve">
-                <img class="cardImg" src="/assets/img/Macaron-web-genesis.png"/>
-                <img class="image-hover" src="/assets/img/Macaron-web-genesis-hover.png"/>
-                <h3 class="hiddenTitle">Le laboratoire du professeur Genesis</h3>
-            </div>
-        </div>
-
-
-        <div class="cardSize">
-            <div class="cardRoomReserve">
-                <a href="/manoir_reservation"><img class="cardImg" src="/assets/img/Macaron-web-manoir-inactive.png"/>
-                    <img class="image-hover" src="/assets/img/Macaron-web-manoir-hover.png"/>
-                </a>
-                <h3 class="hiddenTitle">Le Manoir</h3>
-            </div>
-        </div>
-
-
-        <div class="cardSize">
-            <div class="cardRoomReserve">
-                <a href="/cachot_reservation"><img class="cardImg" src="/assets/img/Macaron-web-cachot-inactive.png"/>
-                    <img class="image-hover" src="/assets/img/Macaron-web-cachot-hover.png"/>
-                </a>
-                <h3 class="hiddenTitle">Le Cachot</h3>
-            </div>
-        </div>
-
-
-        <div class="cardRoom" style="display: none">
-            <img class="cardImg" src=""/>
-            <h3 class="hiddenTitle">Coming soon</h3>
-            <p>Résumé de l'histoire</p>
-            <a href="" title="">(En savoir plus)</a>
-            <a href="" title="">Réservez en ligne!</a>
-        </div>
-
-        <div class="cardRoom" style="display: none">
-            <h3 class="hiddenTitle">Coming soon</h3>
-            <p>Résumé de l'histoire</p>
-            <a href="" title="">(En savoir plus)</a>
-            <a href="" title="">Réservez en ligne!</a>
-        </div>
-
-    </div>
-</div> -->
-<!-- END Le Rooms Section-->
 
 <!--Title-->
     <div class="banner-calendars bannerCalHeight separatorAfter backgroundMediumBlue">
@@ -277,7 +225,4 @@ $year = date("Y", mktime(0, 0, 0, date("n"), date("d") + $jour, date("y"))); ?>
         </form>
     </div>
 </div>
-<div class="banner-calendars bannerCalHeight separatorAfter backgroundMediumBlue">
-<!-- <div class="fond">
-    <?php //require "footer.php" ?>
-</div> -->
+<!-- <div class="banner-calendars bannerCalHeight separatorAfter backgroundMediumBlue"> -->

@@ -2,17 +2,21 @@
 <p>shortcode: <code>[genesis_reservation]</code></p>
 
 <?php
+require_once "header.php";
 use \Inc\Base\Calendars;
-use \Inc\Base\Session;
+use \Inc\Base\AdminUsers;
+// use \Inc\Base\Session;
 date_default_timezone_set('Europe/Paris');
 
 
 /** Vérification de la Session Admin **/
-$session = new Session();
-$session->auth();
+// $session = new Session();
+// $session->auth();
 
 $calendars = new calendars();
+$user = new AdminUsers();
 
+global $client;
 
 
 /** On Supprime toute les réservations pré-reserver et non payer par les utilisateurs dans un espace de 10 Minutes */
@@ -27,15 +31,14 @@ $dateReserved = $calendars->ReservedisEmphty();
 if (isset($_POST['cancel'])) {
     $id = (int)$_POST['id'];
     $calendars->deleteReserved($id);
-    header('Location:' . $_SERVER['HTTP_REFERER']);
+    header('Location:' . 'admin.php?page=apocalypstar_genesis');
 }
 
 
 if (isset($_POST['notes'])) {
     $id = (int)$_POST['id'];
     $note = ucfirst(htmlentities($_POST['note']));
-    $calendars->updateNote($note, $_SESSION['admin']->user, $id);
-    // $calendars->updateNote($note, "Vichagar", $id);
+    $calendars->updateNote($note, $user->getUserName(), $id);
     header('Location:' . $_SERVER['HTTP_REFERER']);
 }
 
@@ -138,13 +141,16 @@ $year = date("Y", mktime(0, 0, 0, date("n"), date("d") + $jour, date("y")));
                     <!-- Si la date est présente dans le tableau et donc réservé -->
                     <?php if (in_array($daysCurrent . ' ' . $horaires, $dateReserved)) { ?>
                         <?php $client = $calendars->reservedBlockAdmin(date("Y-m-d", mktime(0, 0, 0, date("n"), date("d")  + $nbJour + $jour)), $horaires); 
-                        //var_dump('$client: ');
-                        //var_dump($client); ?>
-                        <td class="hour horaire_<?= $dateHoraire ?> jour_<?= $nbJour ?>"><?php   $calendars->infoVisiteur() ?></td>
+                        // var_dump($client); ?>
+                        <td class="hour horaire_<?= $dateHoraire ?> jour_<?= $nbJour ?>">
+                            <?php
+                            $calendars->infoVisiteur();
+                            ?>
+                        </td>
 
 
                         <?php } else { ?>
-                            <td data-date="<?= $daysCurrent ?>"
+                            <td data-date="<?= $daysCurrent?>"
                                 data-hour="<?= $horaires ?>"
                                 class="hour cliquable horaire_<?= $dateHoraire ?> jour_<?= $nbJour ?>"> <?= $horaires . '<br>' . 'DISPONIBLE' ?>
                             </td>

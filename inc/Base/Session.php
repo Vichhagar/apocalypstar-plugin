@@ -29,10 +29,10 @@ class Session {
     
     /*  Vérifie la session Admin */
     public function auth(){
-        // global $session;
-        // if (!isset($_SESSION['admin'])){
-        //     $session->redirect('auth');
-        // }
+        global $session;
+        if (!isset($_SESSION['admin'])){
+            $session->redirect('auth');
+        }
     }
 
     /*  Si la session admin existe on redirige */
