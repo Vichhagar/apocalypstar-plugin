@@ -23,6 +23,8 @@ use \Inc\Base\BaseController;
        wp_enqueue_style('mypluginstyle2', $this -> plugin_url . '/assets/css/style_admin_responsive_old.css',__FILE__);
        wp_enqueue_style('mypluginstyle3', $this -> plugin_url . '/assets/css/style_admin_responsive.css',__FILE__);
        wp_enqueue_style('mypluginstyle4', $this -> plugin_url . '/assets/css/style_admin.css',__FILE__);
+       wp_enqueue_style('mypluginstyle4', $this -> plugin_url . '/assets/css/style_admin.css',__FILE__);
+       
 
        wp_enqueue_script('mypluginscript', $this -> plugin_url . '/assets/js/script.js',__FILE__);
        wp_enqueue_script('mypluginscript1', $this -> plugin_url . '/assets/js/script_admin.js',__FILE__);
@@ -31,18 +33,25 @@ use \Inc\Base\BaseController;
     }
 
     function frontendEnqueue() {
-       // enqueue all our scripts
 
+      wp_enqueue_style('bootstrap', "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css");
 
-       wp_enqueue_script('mypluginscriptgenesis', $this -> plugin_url . '/assets/js/genesis.js',__FILE__);
-       wp_enqueue_script('mypluginscriptjquerybacondmin', $this -> plugin_url . '/assets/js/jquery.ba-cond.min.js',__FILE__);
-       wp_enqueue_script('mypluginscriptcachot', $this -> plugin_url . '/assets/js/cachot.js',__FILE__);
-       wp_enqueue_script('mypluginscriptjqueryslitslider', $this -> plugin_url . '/assets/js/jquery.slitslider.js',__FILE__);
-       wp_enqueue_script('mypluginscriptmodernizrcustom79639', $this -> plugin_url . '/assets/js/modernizr.custom.79639.js',__FILE__);
+      // https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js
+      // wp_enqueue_script('bootstrap',  "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js");
 
-       wp_enqueue_style('mypluginstyle', $this -> plugin_url . '/assets/css/genesis.css',__FILE__);
+       wp_enqueue_style('mypluginstyle', $this -> plugin_url . '/assets/css/calendrier.css',__FILE__);
        wp_enqueue_style('mypluginstylehome', $this -> plugin_url . '/assets/css/home.css',__FILE__);
        wp_enqueue_style('mypluginstylemenu', $this -> plugin_url . '/assets/css/menu.css',__FILE__);
+       wp_enqueue_style('mypluginstylbootstrap', $this -> plugin_url . '/assets/css/menu.css',__FILE__);
+
+      // enqueue all our scripts
+
+
+      wp_enqueue_script('mypluginscriptgenesis', $this -> plugin_url . '/assets/js/genesis.js',__FILE__);
+      wp_enqueue_script('mypluginscriptjquerybacondmin', $this -> plugin_url . '/assets/js/jquery.ba-cond.min.js',__FILE__);
+      wp_enqueue_script('mypluginscriptcachot', $this -> plugin_url . '/assets/js/cachot.js',__FILE__);
+      wp_enqueue_script('mypluginscriptjqueryslitslider', $this -> plugin_url . '/assets/js/jquery.slitslider.js',__FILE__);
+      wp_enqueue_script('mypluginscriptmodernizrcustom79639', $this -> plugin_url . '/assets/js/modernizr.custom.79639.js',__FILE__);
 
       // CDN jQuery and BootStrap
       // CSS

@@ -9,14 +9,14 @@ class DB{
     private $dbhost = '127.0.0.1';
     private $dbusername = 'root';
     private $dbpassword = '';
-    private $dbname = 'u643107709_apocalypstar';
+    private $dbname = 'test_db';
 
 
     /** @var string LOG DB SERVEUR */
     private $dbhost_prod = 'localhost';
     private $dbusername_prod = 'root';
     private $dbpassword_prod = '';
-    private $dbname_prod = 'u643107709_apocalypstar';
+    private $dbname_prod = 'test_db';
 
     protected $pdo;
 

@@ -67,12 +67,12 @@ $year = date("Y", mktime(0, 0, 0, date("n"), date("d") + $jour, date("y"))); ?>
 <!-- BLOC HEADER DOND Medium Blue -->
 
 <!--Title-->
-    <div class="banner-calendars bannerCalHeight separatorAfter backgroundMediumBlue">
+    <!-- <div class="banner-calendars bannerCalHeight separatorAfter backgroundMediumBlue"> -->
 <!--        <h2 class="inlineBlock titleGold">Réservez votre Session du Jeu Genesis (7+)</h2>-->
     </div>
 <!-- END Title-->
-
-<div class="container container_tableau_form backgroundDarkBlue">
+<!-- backgroundDarkBlue -->
+<div class="container container_tableau_form ">
 
     <div class="blockCalendar framedBlock4">
         <strong style="text-align: center"><?php $session->flash(); ?></strong>
@@ -158,7 +158,7 @@ $year = date("Y", mktime(0, 0, 0, date("n"), date("d") + $jour, date("y"))); ?>
 
     <div class="block_reservation backgroundMap framedBlock4">
 
-        <form class="form-horizontal" id="form_reserved_user" method="post" action="/reserved" name="formUser">
+        <form class="form-horizontal" id="form_reserved_user" method="post" action="<?= plugin_dir_url(dirname(__FILE__, 1)) . '/templates/traitementreserved.php' ?>" name="formUser" target="POPUPW" onsubmit="POPUPW = window.open('about: blank','POPUPW', 'width=1333, height=910');">
 
             <div style="clear: both">
                 <img class="titleImg" src="<?= plugin_dir_url(dirname(__FILE__, 1)) . '/assets/img/Macaron-web-genesis.png' ?>" width="100px">

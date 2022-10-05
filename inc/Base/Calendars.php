@@ -1,12 +1,17 @@
 <?php
 namespace Inc\Base;
-use \Inc\Base\AdminUsers;
+// use \Inc\Base\AdminUsers;
 
+// global $user;
+// $user = new AdminUsers();
+
+// $user = _wp_get_current_user() -> user_login;
 
 class Calendars extends DB
 {
     /** Avant d'effectuer une réservation, on vérifie qu'aucune n'existe déjà */
     // Before making a reservation, we check that none already exist
+
     public function verifReserved($daysReserved, $heure_reserved)
     {
         $req = $this->pdo->query("SELECT date_reserved, heure_reserved FROM users WHERE date_reserved = '$daysReserved' AND heure_reserved = '$heure_reserved'");
@@ -56,11 +61,12 @@ class Calendars extends DB
     // Reservation Blocked by Admin
     public function addBlockRoom($days, $hour, $name, $firstname, $email, $phone)
     {
+        global $user;
         $req = $this->pdo->prepare
         ("INSERT INTO users (date_reserved, heure_reserved, create_reserved, name, firstname, email, phone, admin_reserved, block_admin) 
           VALUES (?, ?, NOW(), ?, ?, ?, ?, ?, 1)");
-        $req->execute(array($days, $hour, $name, $firstname, $email, $phone, $this ->user->getUserName()));
-        var_dump("YOU CLIKC HERE");
+        $req->execute(array($days, $hour, $name, $firstname, $email, $phone, _wp_get_current_user() -> user_login));
+        // var_dump($user);
     }
 
 
@@ -568,7 +574,7 @@ class Calendars extends DB
              data-placement="auto" data-html="true" data-content="
                                      <p> Email     : <?= $client->email ?></p>
                                      <p> Téléphone : <?= $client->phone ?> </p>
-                                     <p> Nombre de Joueur : <?= $this->nbJoueur("5"); ?></p>
+                                     <p> Nombre de Joueur : <?= $this->nbJoueur($client->price); ?></p>
                                      <p> Réservation Créer le  : <?= $this->dateen2fr(substr($client->create_reserved, 0, 10)) ?></p>
                                      <p> Référence Paiement : <?= $client->reference_paiement ?> </p>
                                      <p><?= $this->notes_add_by(); ?></p>

@@ -10,6 +10,6 @@ use Inc\Base\BaseController;
  class ManoirReservation extends BaseController
  {
     public function manoirReservation() {
-        return require_once($this -> plugin_path . '/templates/manoirReservationAdmin.php');
+        return require_once($this -> plugin_path . '/templates/admin/manoirReservationAdmin.php');
     }
  }

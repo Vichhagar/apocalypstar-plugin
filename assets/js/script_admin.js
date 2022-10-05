@@ -1,5 +1,4 @@
-$(document).ready(function () {
-
+jQuery(document).ready(function ($) {  
     /** On récupère le Jours du Samedi pour le cacher **/
     var hiddenSaturday = document.getElementById('hidden_saturday').value;
     $(".jour_" + hiddenSaturday).hide();
@@ -14,7 +13,6 @@ $(document).ready(function () {
 
     /** Calendrier Horaire Creuse */
     var nbDaysWeek = document.getElementById('nb_days_php_to_js').value;
-
 
     if (nbDaysWeek == "4-days") {
         var hiddenMonday = document.getElementById('hidden_monday').value;
@@ -80,7 +78,7 @@ $(document).ready(function () {
 
 
     // BLOQUER UNE SESSION PAR ADMIN
-    $("#form_block_admin").submit(function () {
+    jQuery("#form_block_admin").submit(function ($) {
 
         // Vérifie que le jour et l'horaire à bien été sélectionné
         if (typeof days == "undefined" || typeof hour == "undefined") {
@@ -91,28 +89,28 @@ $(document).ready(function () {
             document.forms["formUser"].elements["days"].value = days;
             document.forms["formUser"].elements["hour"].value = hour;
         }
-
     });
 
 
-        // SOUSMISSION DU FORMULAIRE COTE ADMINISTRATEUR
-    $("#form_reserved_admin").submit(function () {
-        event.preventDefault();
+    // SOUSMISSION DU FORMULAIRE COTE ADMINISTRATEUR
+    jQuery("#form_reserved_admin").submit(function ($) {
 
+        event.preventDefault();
 
         name = document.getElementById("name").value;
         firstname = document.getElementById("firstname").value;
         email = document.getElementById("email").value;
         phone = document.getElementById("phone").value;
         room = document.getElementById("room").value;
+        admin = document.getElementById("admin").value;
 
-        var form = $(this);
+        var form = jQuery(this);
         var error = 0;
 
 
         // Bouclé sur les Champs pour s'assurer qu'ils sont remplies
-        $('#name, #firstname, #email, #phone', form).each(function () {
-            if ($(this).val() == '') {
+        jQuery('#name, #firstname, #email, #phone, #admin', form).each(function ($) {
+            if (jQuery(this).val() == '') {
                 error++;
             }
             if (error) { // En cas d'erreur(s) détectée(s)
@@ -146,7 +144,7 @@ $(document).ready(function () {
 
 
         if (error == 0 ){
-            $.post("../admin/traitementadmin.php",
+            jQuery.post("../wp-content/plugins/apocalypstar/templates/traitementadmin.php", 
                 {
                     name: name,
                     firstname: firstname,
@@ -156,10 +154,12 @@ $(document).ready(function () {
                     number: number,
                     days: days,
                     hour: hour,
-                    room: room
+                    room: room,
+                    admin: admin
                 },
                 function (data) {
                     //document.getElementById("form_reserved_admin").reset();//
+                    // console.log(data);
                     document.location.reload(true);
                 });
         }

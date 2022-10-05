@@ -10,6 +10,6 @@ use Inc\Base\BaseController;
  class CachotReservation extends BaseController
  {
     public function cachotReservation() {
-        return require_once($this -> plugin_path . '/templates/cachotReservationAdmin.php');
+        return require_once($this -> plugin_path . '/templates/admin/cachotReservationAdmin.php');
     }
  }

@@ -13,6 +13,7 @@ use Inc\Base\BaseController;
         add_shortcode('genesis_reservation', [$this, 'genesis_reservation']);
         add_shortcode('manoir_reservation', [$this, 'manoir_reservation']);
         add_shortcode('cachot_reservation', [$this, 'cachot_reservation']);
+        add_shortcode('payment_option', [$this, 'payment_option']);
     }
 
     public function genesis_reservation() {
@@ -30,6 +31,12 @@ use Inc\Base\BaseController;
     public function cachot_reservation() {
         ob_start();
         require_once($this -> plugin_path . '/templates/cachotReservation.php');
+        return ob_get_clean();
+    }
+
+    public function payment_option() {
+        ob_start();
+        require_once($this -> plugin_path . '/templates/traitementreserved.php');
         return ob_get_clean();
     }
  }

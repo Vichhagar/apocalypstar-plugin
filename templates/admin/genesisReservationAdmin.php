@@ -2,7 +2,7 @@
 <p>shortcode: <code>[genesis_reservation]</code></p>
 
 <?php
-require_once "header.php";
+require_once "adminHeader.php";
 use \Inc\Base\Calendars;
 use \Inc\Base\AdminUsers;
 // use \Inc\Base\Session;
@@ -31,7 +31,8 @@ $dateReserved = $calendars->ReservedisEmphty();
 if (isset($_POST['cancel'])) {
     $id = (int)$_POST['id'];
     $calendars->deleteReserved($id);
-    header('Location:' . 'admin.php?page=apocalypstar_genesis');
+    echo '<script type="text/javascript"> document.location.reload(true); </script>';
+    // header('Location:' . 'admin.php?page=apocalypstar_genesis');
 }
 
 
@@ -39,7 +40,7 @@ if (isset($_POST['notes'])) {
     $id = (int)$_POST['id'];
     $note = ucfirst(htmlentities($_POST['note']));
     $calendars->updateNote($note, $user->getUserName(), $id);
-    header('Location:' . $_SERVER['HTTP_REFERER']);
+    // header('Location:' . $_SERVER['HTTP_REFERER']);
 }
 
 
@@ -47,14 +48,14 @@ if (isset($_POST['doit_payer'])) {
     $id = (int)$_POST['id'];
     $refMsg = "Paid by Cash" . " " . date('d/m/Y H:i:s');
     $calendars->payoutReserved($id,$refMsg);
-    header('Location:' . $_SERVER['HTTP_REFERER']);
+    // header('Location:' . $_SERVER['HTTP_REFERER']);
 }
 
 if (isset($_POST['pay_CB'])) {
     $id = (int)$_POST['id'];
     $refMsg = "Paid by CB" . " " . date('d/m/Y H:i:s');
     $calendars->payoutReserved($id,$refMsg);
-    header('Location:' . $_SERVER['HTTP_REFERER']);
+    // header('Location:' . $_SERVER['HTTP_REFERER']);
 }
 
 
@@ -66,7 +67,9 @@ if (isset($_POST['blockSession'])) {
     $email = "Bloqué";
     $phone = "Bloqué";
     $calendars->addBlockRoom($days, $hour, $name, $firstname, $email, $phone);
-    header('Location:' . $_SERVER['HTTP_REFERER']);
+    // document.location.reload(true);
+    echo '<script type="text/javascript"> document.location.reload(true); </script>';
+    //header('refresh:0'); //?? I still have to refrest for the block admin to show on screen
 }
 
 
@@ -113,9 +116,9 @@ $year = date("Y", mktime(0, 0, 0, date("n"), date("d") + $jour, date("y")));
         <!-- AVANCER DANS LES SEMAINES  -->
         <h2>Genesis - <?= $calendars->monthsen2fr($month) . ' ' . $year ?></h2>
         <h4>
-            <a href="admin.php?page=apocalypstar_genesis&amp;week=pre&amp;jour=<?= $jour ?>"><img src="<?= plugin_dir_url(dirname(__FILE__, 1)) . 'assets/img/arrow2.png' ?>" height="30px"></a>
+            <a href="admin.php?page=apocalypstar_genesis&amp;week=pre&amp;jour=<?= $jour ?>"><img src="<?= plugin_dir_url(dirname(__FILE__, 2)) . 'assets/img/arrow2.png' ?>" height="30px"></a>
                 Jour du: <?= $dateCurrent . ' au ' . $dateEnd ?>
-            <a href="admin.php?page=apocalypstar_genesis&amp;week=next&amp;jour=<?= $jour ?>"><img src="<?= plugin_dir_url(dirname(__FILE__, 1)) . 'assets/img/arrow.png' ?>"  height="30px"></a>
+            <a href="admin.php?page=apocalypstar_genesis&amp;week=next&amp;jour=<?= $jour ?>"><img src="<?= plugin_dir_url(dirname(__FILE__, 2)) . 'assets/img/arrow.png' ?>"  height="30px"></a>
         </h4>
     </div>
 
@@ -207,6 +210,8 @@ $year = date("Y", mktime(0, 0, 0, date("n"), date("d") + $jour, date("y")));
                 <div class="btn btn-default col-md-4 col-sm-12 col-xs-12  number" data-number="6"> 6 Joueurs = 130€</div>
             </div>
             <input id="room" type="hidden" name="room" value="1">
+            <input id="admin" type="hidden"  name="admin" value="<?php echo $user->getUserName() ?>">
+
 
             <button type="submit" class="btn btn-default button_reserved"> Effectuer la Réservation</button>
         </form>

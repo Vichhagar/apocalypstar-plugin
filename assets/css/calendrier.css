@@ -156,7 +156,8 @@ td {
     box-sizing: border-box;
 
 }
-th {background-color: #C1272D;}
+th {background-color: #C1272D;
+    text-align: center;}
 
 tr {
     margin-left: -1rem;
